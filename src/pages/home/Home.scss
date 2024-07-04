@@ -1,0 +1,11 @@
+@import "../../styles/variables";
+
+.Home {
+  background-color: map-get($green, 600);
+  min-height: 100vh;
+  padding: 60px;
+
+  @media screen and (max-width: $md) {
+    padding: 20px;
+  }
+}

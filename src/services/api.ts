@@ -83,8 +83,7 @@ export async function apiService<T>({
 }: ApiService): Promise<T> {
     const qString = composeQueryParams(query);
 
-    const path = `${hostname}/${pathname}${qString}`;
-
+    const path = `${hostname}${pathname ? "/" + pathname : ""}${qString}`;
     const options = {
         method,
         body: body ? JSON.stringify(body) : undefined,
@@ -94,6 +93,7 @@ export async function apiService<T>({
         },
     };
 
+    console.log(path, options, "pa");
     const response = await fetch(path, options);
 
     return parseResponse<T>(response);

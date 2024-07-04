@@ -6,7 +6,7 @@
   font-family: Raleway;
   font-weight: 400;
   font-display: swap;
-src:
+  src:
     url("/fonts/Raleway-Regular.woff2") format("woff2"),
     url("/fonts/Raleway-Regular.woff") format("woff"),
     url("/fonts/Raleway-Regular.ttf") format("truetype");
@@ -33,19 +33,16 @@ src:
 }
 
 * {
-    font-feature-settings:
-        "pnum" on,
-        "lnum" on;
+  font-feature-settings:
+    "pnum" on,
+    "lnum" on;
 }
 
 html {
-    font-family: Raleway, ui-sans-serif, system-ui, sans-serif,
-      "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-      "Noto Color Emoji";
-    font-weight: 500;
-    color: rgb(var(--gray-1000));
-    color-scheme: dark;
-    background-color: Canvas;
+  font-family: Raleway, ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-weight: 500;
+  color: rgb(var(--gray-1000));
 }
 
 @layer base {
@@ -78,7 +75,7 @@ html {
     --orange-100: 255, 243, 240; /* rgb(255, 243, 240)  */
     --orange-200: 255, 231, 223; /* rgb(255, 231, 223)  */
     --orange-300: 255, 216, 204; /* rgb(255, 216, 204)  */
-    --orange-400: 255, 201, 184 ; /* rgb(255, 201, 184 )  */
+    --orange-400: 255, 201, 184; /* rgb(255, 201, 184 )  */
     --orange-500: 255, 185, 163; /* rgb(255, 185, 163)  */
     --orange-600: 255, 144, 108; /* rgb(255, 144, 108)  */
     --orange-700: 255, 112, 66; /* rgb(255, 112, 66 )  */

@@ -1,0 +1,34 @@
+@import "variables";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@mixin font-face($weight, $style) {
+  @font-face {
+    font-family: Raleway;
+    font-weight: $weight;
+    font-display: swap;
+    src:
+      url("/fonts/Raleway-#{$style}.woff2") format("woff2"),
+      url("/fonts/Raleway-#{$style}.woff") format("woff"),
+      url("/fonts/Raleway-#{$style}.ttf") format("truetype");
+  }
+}
+
+@include font-face(400, "Regular");
+@include font-face(500, "Medium");
+@include font-face(700, "Bold");
+
+* {
+  font-feature-settings:
+    "pnum" on,
+    "lnum" on;
+}
+
+html {
+  font-family: Raleway, ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-weight: 500;
+  color: map-get($gray, 900);
+  box-sizing: border-box;
+}

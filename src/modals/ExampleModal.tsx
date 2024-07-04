@@ -1,5 +1,5 @@
 const ExampleModal = () => {
-    return <div>modal</div>;
+    return <div className="text-white">modal</div>;
 };
 
 export default ExampleModal;
