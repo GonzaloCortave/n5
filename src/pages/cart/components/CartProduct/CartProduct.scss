@@ -1,0 +1,14 @@
+@import "../../../../styles/variables";
+
+.CartProduct {
+  display: grid;
+  background-color: rgba(map-get($gray, 100), 0.3);
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(map-get($gray, 900), 0.1);
+  border-radius: 12px;
+
+  &__amount {
+    display: flex;
+    gap: 8px;
+  }
+}

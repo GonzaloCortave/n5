@@ -5,4 +5,15 @@ export type Product = {
     id: number;
 };
 
+export type CartProduct = Product & {
+    quantity: number;
+};
+
+export type CartProductBasicInfo = {
+    id: number;
+    quantity: number;
+};
+
+export type CartProducts = CartProduct[];
+
 export type Products = Product[];

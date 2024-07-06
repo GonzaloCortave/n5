@@ -2,6 +2,8 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter } from "react-router-dom";
 
+import { ProductsProvider } from "./ProductsProvider";
+
 import { ModalProvider } from "@/appProviders/ModalManagerProvider/ModalManagerProvider";
 import WindowSizeProvider from "@/appProviders/WindowSizeProvider";
 type AppProvidersProps = {
@@ -24,7 +26,9 @@ export const AppProviders = ({ children }: AppProvidersProps) => {
                     <ReactQueryDevtools
                         initialIsOpen={import.meta.env.VITE_NODE_ENV === "development"}
                     />
-                    <ModalProvider>{children}</ModalProvider>
+                    <ModalProvider>
+                        <ProductsProvider>{children}</ProductsProvider>
+                    </ModalProvider>
                 </WindowSizeProvider>
             </QueryClientProvider>
         </BrowserRouter>

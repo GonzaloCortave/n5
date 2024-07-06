@@ -1,7 +1,6 @@
 import { Helmet } from "react-helmet";
 
 import "./Home.scss";
-// import Logo from "@/../public/images/logo.png";
 import Products from "./components/Products/Products";
 
 export const Home = () => {
@@ -10,9 +9,6 @@ export const Home = () => {
             <Helmet>
                 <title>N5 - Cortave Gonzalo</title>
             </Helmet>
-            {/* <nav>
-        <img src={Logo} alt="logo" />
-      </nav> */}
             <Products />
         </main>
     );

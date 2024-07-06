@@ -1,0 +1,17 @@
+@import "../../styles/variables";
+
+.Navbar {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  background-color: rgba(map-get($green, 700), 0.3);
+  box-shadow: 0 0 10px rgba(map-get($gray, 900), 0.1);
+
+  &__cart {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+  }
+}

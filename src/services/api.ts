@@ -93,7 +93,6 @@ export async function apiService<T>({
         },
     };
 
-    console.log(path, options, "pa");
     const response = await fetch(path, options);
 
     return parseResponse<T>(response);

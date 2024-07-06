@@ -10,7 +10,5 @@ export const getProducts = async () => {
         hostname: "apiSimulation.json",
     });
 
-    console.log("res", res.products);
-
     return res?.products || [];
 };

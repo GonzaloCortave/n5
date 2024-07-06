@@ -1,17 +1,24 @@
 import Product from "../Product/Product";
 
-import { useProducts } from "@/hooks/useProducts";
 import "./Products.scss";
+import { useProductsContext } from "@/appProviders/ProductsProvider";
 
 const Products = () => {
-    const products = useProducts();
+    const { products, addProductToCart } = useProductsContext();
 
     return (
-        <div className="Products">
-            {products.map((product) => (
-                <Product key={product.id} product={product} />
-            ))}
-        </div>
+        <>
+            <h1>Products</h1>
+            <div className="Products">
+                {products.map((product) => (
+                    <Product
+                        key={product.id}
+                        product={product}
+                        onAddProductClick={addProductToCart}
+                    />
+                ))}
+            </div>
+        </>
     );
 };
 
