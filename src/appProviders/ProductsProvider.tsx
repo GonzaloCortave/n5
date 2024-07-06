@@ -13,6 +13,9 @@ type ProductsContextProps = {
     products: Products;
     cartProducts: () => CartProducts;
     addProductToCart: (props: CartProductBasicInfo) => void;
+    totalCartPrice: () => number;
+    buyProducts: () => void;
+    clearCart: () => void;
 };
 
 const ProductsContext = createContext({} as ProductsContextProps);
@@ -24,8 +27,24 @@ type ProductsProviderProps = {
 };
 
 export const ProductsProvider = ({ children }: ProductsProviderProps) => {
-    const products = useProducts();
-    const { rawCartProducts, addProductToCart } = useCartProducts();
+    const { products, setProducts } = useProducts();
+    const { rawCartProducts, addProductToCart, clearCart } = useCartProducts();
+
+    const buyProducts = () => {
+        alert("Products bought!");
+        const updatedProducts = products.map((product) => {
+            const cartProduct = rawCartProducts.find((cartItem) => cartItem.id === product.id);
+
+            if (cartProduct) {
+                return { ...product, amount: product.amount - cartProduct.quantity };
+            }
+
+            return product;
+        });
+
+        setProducts(updatedProducts);
+        clearCart();
+    };
 
     const cartProducts = useMemo(
         () => () =>
@@ -42,8 +61,27 @@ export const ProductsProvider = ({ children }: ProductsProviderProps) => {
         [rawCartProducts, products],
     );
 
+    const totalCartPrice = useMemo(
+        () => () =>
+            rawCartProducts.reduce(
+                (total, { id, quantity }) =>
+                    total + (products.find((product) => product.id === id)?.price || 0) * quantity,
+                0,
+            ),
+        [rawCartProducts, products],
+    );
+
     return (
-        <ProductsContext.Provider value={{ products, cartProducts, addProductToCart }}>
+        <ProductsContext.Provider
+            value={{
+                products,
+                cartProducts,
+                addProductToCart,
+                totalCartPrice,
+                buyProducts,
+                clearCart,
+            }}
+        >
             {children}
         </ProductsContext.Provider>
     );

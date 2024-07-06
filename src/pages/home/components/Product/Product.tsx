@@ -8,6 +8,7 @@ import { FaCartPlus } from "react-icons/fa";
 import { useState } from "react";
 
 import QuantityCounter from "@/components/QuantityCounter/QuantityCounter";
+import Button from "@/components/Button/Button";
 
 type ProductProps = {
     product: ProductType;
@@ -38,14 +39,17 @@ const Product = ({ product, onAddProductClick }: ProductProps) => {
                         />
                     )}
                 </div>
-                <button
+                <Button
                     className="Product__button"
                     disabled={!hasStock}
-                    onClick={() => onAddProductClick({ id: product.id, quantity })}
+                    onClick={() => {
+                        onAddProductClick({ id: product.id, quantity });
+                        alert(`${quantity} units of ${product.name} added to cart`);
+                    }}
                 >
                     Add to cart
                     <FaCartPlus />
-                </button>
+                </Button>
             </div>
         </div>
     );

@@ -1,12 +1,13 @@
 import QuantityCounter from "@/components/QuantityCounter/QuantityCounter";
-import { CartProduct } from "@/pages/home/components/Products/@types";
+import { CartProduct as CartProductType } from "@/pages/home/components/Products/@types";
 
 import "./CartProduct.scss";
 import { useEffect, useState } from "react";
 
 import { useProductsContext } from "@/appProviders/ProductsProvider";
+import { formatCurrency } from "@/utils/currency";
 type CartProductProps = {
-    product: CartProduct;
+    product: CartProductType;
 };
 
 const CartProduct = ({ product }: CartProductProps) => {
@@ -24,7 +25,7 @@ const CartProduct = ({ product }: CartProductProps) => {
                 Name: <strong>{name}</strong>
             </h2>
             <p>
-                Price: <strong>{price}</strong>
+                Price: <strong>{price ? formatCurrency(price) : ""}</strong>
             </p>
             <p>
                 Stock: <strong>{amount}</strong>
@@ -40,7 +41,7 @@ const CartProduct = ({ product }: CartProductProps) => {
                 </strong>
             </p>
             <p>
-                Total: <strong>{price * quantity || ""}</strong>
+                Total: <strong>{price && quantity ? formatCurrency(price * quantity) : ""}</strong>
             </p>
         </div>
     );

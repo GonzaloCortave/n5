@@ -14,6 +14,21 @@
     grid-gap: 1rem;
     margin-top: 1rem;
     justify-content: start;
+
+    &--full {
+      @media screen and (max-width: $sm) {
+        justify-content: center;
+      }
+    }
+  }
+
+  &__buttons-container {
+    display: flex;
+    gap: 20px;
+
+    & .Button {
+      width: 120px;
+    }
   }
 
   @media screen and (max-width: $md) {

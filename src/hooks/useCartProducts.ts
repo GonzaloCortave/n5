@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { getCartProducts, saveCartProducts } from "@/localStorage/cartProducts";
+import { clearCartProducts, getCartProducts, saveCartProducts } from "@/localStorage/cartProducts";
 import { CartProductBasicInfo } from "@/pages/home/components/Products/@types";
 
 export const useCartProducts = () => {
@@ -11,6 +11,11 @@ export const useCartProducts = () => {
     useEffect(() => {
         saveCartProducts(rawCartProducts);
     }, [rawCartProducts]);
+
+    const clearCart = () => {
+        setRawCartProducts([]);
+        clearCartProducts();
+    };
 
     const upsetProduct = ({ id, quantity }: CartProductBasicInfo): CartProductBasicInfo[] => {
         const productIndex = rawCartProducts.findIndex((product) => product.id === id);
@@ -32,5 +37,5 @@ export const useCartProducts = () => {
         setRawCartProducts(updatedProducts);
     };
 
-    return { rawCartProducts, addProductToCart };
+    return { rawCartProducts, addProductToCart, clearCart };
 };

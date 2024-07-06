@@ -32,20 +32,4 @@
     display: flex;
     gap: 8px;
   }
-
-  &__button {
-    display: flex;
-    gap: 4px;
-    align-items: center;
-    color: white;
-    border-radius: 12px;
-    padding: 4px 8px;
-    justify-content: center;
-    background-color: rgba(map-get($gray, 900), 0.8);
-    transition: background-color 0.3s;
-
-    &:hover {
-      background-color: rgba(map-get($gray, 900), 1);
-    }
-  }
 }
