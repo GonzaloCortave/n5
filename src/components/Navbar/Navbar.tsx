@@ -23,8 +23,13 @@ const Navbar = () => {
                 Cart
                 <PiShoppingCartBold />
             </button>
-
-            {/* <PiShoppingCartFill /> */}
+            <button
+                onClick={() => {
+                    navigate("/add-product");
+                }}
+            >
+                Add product
+            </button>
         </nav>
     );
 };

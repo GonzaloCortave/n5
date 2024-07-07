@@ -1,0 +1,19 @@
+@import "../../styles/variables";
+
+.Input {
+  display: grid;
+  gap: 4px;
+  width: 300px;
+
+  &__input {
+    border-radius: 8px;
+    border: 1px solid map-get($gray, 900);
+    padding: 8px 4px;
+  }
+
+  &__error {
+    color: map-get($red, 800);
+    font-size: 12px;
+    height: 16px;
+  }
+}

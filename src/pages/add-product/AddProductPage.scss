@@ -1,0 +1,14 @@
+@import "../../styles/variables";
+
+.AddProductPage {
+  display: flex;
+  flex-direction: column;
+  background-color: map-get($green, 600);
+  min-height: 100vh;
+  padding: 60px;
+  align-items: center;
+
+  @media screen and (max-width: $md) {
+    padding: 20px;
+  }
+}

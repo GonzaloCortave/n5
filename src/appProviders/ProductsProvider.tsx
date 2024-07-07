@@ -16,6 +16,7 @@ type ProductsContextProps = {
     totalCartPrice: () => number;
     buyProducts: () => void;
     clearCart: () => void;
+    addProduct: (product: Product) => void;
 };
 
 const ProductsContext = createContext({} as ProductsContextProps);
@@ -71,6 +72,10 @@ export const ProductsProvider = ({ children }: ProductsProviderProps) => {
         [rawCartProducts, products],
     );
 
+    const addProduct = (product: Product) => {
+        setProducts([...products, product]);
+    };
+
     return (
         <ProductsContext.Provider
             value={{
@@ -80,6 +85,7 @@ export const ProductsProvider = ({ children }: ProductsProviderProps) => {
                 totalCartPrice,
                 buyProducts,
                 clearCart,
+                addProduct,
             }}
         >
             {children}
