@@ -30,6 +30,7 @@ const Form = <FormT extends FieldValues>({
         <FormProvider {...methods}>
             <form
                 className="Form"
+                data-testid="form"
                 onSubmit={handleSubmit((data) => {
                     onSubmit(data);
                     reset(defaultValues);
